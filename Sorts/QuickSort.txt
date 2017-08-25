@@ -1,0 +1,52 @@
+ public void swap(int a, int b, ArrayList<Object[]> dataValues)
+           {
+               Object[] temp = dataValues.get(a);
+               dataValues.set(a, dataValues.get(b));
+               dataValues.set(b, temp);
+           }
+
+       public void quickSortAcc(ArrayList<Object[]> dataValues, int begin, int end)
+        {
+            if (begin < end) 
+            {
+                //select pivot
+                Object pivot = dataValues.get(end)[1];
+                int pindex = begin;
+
+                //move everything smaller than the pivot left
+                //to where the pivot will eventually be
+                for (int i = begin; i < end; i++) {
+                    if (dataValues.get(i)[1].toString().compareToIgnoreCase(pivot.toString()) < 0) {
+                        swap(i, pindex++, dataValues);
+                    }
+                }
+                //the pivot is now in its correct sorted location
+                swap(pindex, end, dataValues);
+
+                quickSortAcc(dataValues, begin, pindex - 1); //repeat this on the first half
+                quickSortAcc(dataValues, pindex + 1, end);  //repeat this on the second half
+            }
+        }
+       
+       public void quickSortDec(ArrayList<Object[]> dataValues, int begin, int end)
+        {
+            if (begin < end) 
+            {
+                //select pivot
+                Object pivot = dataValues.get(end)[1];
+                int pindex = begin;
+
+                //move everything smaller than the pivot left
+                //to where the pivot will eventually be
+                for (int i = begin; i < end; i++) {
+                    if (dataValues.get(i)[1].toString().compareToIgnoreCase(pivot.toString()) > 0) {
+                        swap(i, pindex++, dataValues);
+                    }
+                }
+                //the pivot is now in its correct sorted location
+                swap(pindex, end, dataValues);
+
+                quickSortDec(dataValues, begin, pindex - 1); //repeat this on the first half
+                quickSortDec(dataValues, pindex + 1, end);  //repeat this on the second half
+            }
+        }

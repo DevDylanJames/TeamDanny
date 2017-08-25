@@ -1,0 +1,31 @@
+public void insertionSortAcc(ArrayList<Object[]> dataValues)
+       {
+           int i, j;
+           Object[] obj;
+           for(j = 1; j < dataValues.size(); j++)
+           {
+               obj = dataValues.get(j);
+               for( i = j -1; (i >= 0) && (dataValues.get(i)[2].toString().compareToIgnoreCase(obj[2].toString()) < 0); i--)
+               {
+                   dataValues.set(i + 1, dataValues.get(i));  
+               }
+               dataValues.set((i + 1), obj);
+           }
+        
+       }
+       
+       public void insertionSortDec(ArrayList<Object[]> dataValues)
+       {
+           int i, j;
+           Object[] obj;
+           for(j = 1; j < dataValues.size(); j++)
+           {
+               obj = dataValues.get(j);
+               for( i = j -1; (i >= 0) && (dataValues.get(i)[2].toString().compareToIgnoreCase(obj[2].toString()) > 0); i--)
+               {
+                   dataValues.set(i + 1, dataValues.get(i));  
+               }
+               dataValues.set((i + 1), obj);
+           }
+        
+       }

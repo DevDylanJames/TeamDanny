@@ -1,0 +1,33 @@
+public static void bubbleSortAcc(ArrayList<Object[]> dataValues) 
+    {
+        
+        for(int j=0; j<dataValues.size(); j++) 
+        {  
+            for(int i=j+1; i<dataValues.size(); i++)
+            {  
+                if((dataValues.get(i)[0]).toString().compareToIgnoreCase(dataValues.get(j)[0].toString())>0)
+                { 
+                   Object[] words = dataValues.get(j); 
+                   dataValues.set(j, dataValues.get(i));
+                   dataValues.set(i, words);
+                }  
+            }  
+        }     
+    }  
+      
+       public void bubbleSortDec(ArrayList<Object[]> dataValues) // dataValues 
+    {
+        
+        for(int j=0; j<dataValues.size(); j++) 
+        {  
+            for(int i=j+1; i<dataValues.size(); i++)
+            {  
+                if((dataValues.get(i)[0]).toString().compareToIgnoreCase(dataValues.get(j)[0].toString())<0)
+                {  
+                   Object[] words = dataValues.get(j); 
+                   dataValues.set(j, dataValues.get(i));
+                   dataValues.set(i, words);
+                }  
+            } 
+        }  
+    }
